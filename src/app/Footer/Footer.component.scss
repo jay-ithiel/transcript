@@ -1,0 +1,12 @@
+footer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+
+  div {
+    background-color: rgba(0,167,209,1);
+    height: 4px;
+    width: 100%;
+  }
+}
