@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { FooterModule } from './Footer/Footer.module';
 import { SearchComponent } from './Search/Search.component';
 import { SearchModule } from './Search/Search.module';
+import { TranscriptComponent } from './Transcript/Transcript.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SearchComponent },
+  { path: 'search', component: SearchComponent },
+  { path: '', component: TranscriptComponent },
 ];
 
 @NgModule({
@@ -18,7 +20,10 @@ const appRoutes: Routes = [
     SearchModule,
     RouterModule.forRoot(appRoutes),
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    TranscriptComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
