@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { FooterModule } from './Footer/Footer.module';
+import { SearchModule } from './Search/Search.module';
+import { TranscriptModule } from './Transcript/Transcript.module';
 
 import { AppComponent } from './app.component';
-import { FooterModule } from './Footer/Footer.module';
 import { SearchComponent } from './Search/Search.component';
-import { SearchModule } from './Search/Search.module';
 import { TranscriptComponent } from './Transcript/Transcript.component';
+
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
@@ -16,14 +19,12 @@ const appRoutes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     FooterModule,
     SearchModule,
-    RouterModule.forRoot(appRoutes),
+    TranscriptModule,
   ],
-  declarations: [
-    AppComponent,
-    TranscriptComponent,
-  ],
+  declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
