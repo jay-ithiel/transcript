@@ -16,6 +16,6 @@ export class SearchComponent {
 
   onSubmit() {
     this.submitted = true;
-    this.router.navigate(['/id=', this.model.searchParams]);
+    this.router.navigate([''], { queryParams: { id: this.model.searchParams } });
   }
 }
