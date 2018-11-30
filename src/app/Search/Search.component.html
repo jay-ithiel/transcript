@@ -1,0 +1,14 @@
+<section className="search-container">
+  <div className="search-wrapper">
+    <form #searchForm="ngForm" className="search-form">
+      <div class="form-group">
+        <label for="alterEgo">Transcript Id</label>
+        <input type="text" class="form-control" id="alterEgo"
+          required
+          [(ngModel)]="model.searchParams" name="searchParams">
+      </div>
+      
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">Search</button>
+    </form>
+  </div>
+</section>
