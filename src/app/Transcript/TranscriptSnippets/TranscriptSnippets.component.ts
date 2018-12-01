@@ -22,7 +22,9 @@ export class TranscriptSnippetsComponent implements OnInit {
   fetchTranscriptsData() {
     this.transcriptSnippetsService.getTranscriptData(this.transcriptId)
       .subscribe((transcripts: any) => {
-        this.transcriptsData = transcripts;
+        this.transcriptsData = transcripts.sort(
+          (a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)
+        );
       });
   }
 }
