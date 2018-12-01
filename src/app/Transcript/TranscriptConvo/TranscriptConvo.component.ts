@@ -12,19 +12,35 @@ export class TranscriptConvoComponent implements OnInit {
   @Input() transcriptId: string;
 
   public transcriptsData: string[];
+  public lastSpeaker: string;
 
-  constructor(private TranscriptConvoService: TranscriptConvoService) { }
+  constructor(
+    private transcriptConvoService: TranscriptConvoService
+  ) {
+    this.transcriptConvoService.lastSpeaker.subscribe(lastSpeaker => {
+      this.lastSpeaker = lastSpeaker;
+    });
+  }
 
   ngOnInit() {
     this.fetchTranscriptsData();
   }
 
   fetchTranscriptsData() {
-    this.TranscriptConvoService.getTranscriptData(this.transcriptId)
+    this.transcriptConvoService.getTranscriptData(this.transcriptId)
       .subscribe((transcripts: any) => {
-        this.transcriptsData = transcripts.sort(
-          (a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)
-        );
+        const sortedTranscripts = transcripts.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
+        this.transcriptsData = this.organizeSpeakers(sortedTranscripts);
       });
+  }
+
+  organizeSpeakers(transcripts) {
+    return transcripts.map((transcript, i) => {
+      if (i === 0 || this.lastSpeaker !== transcript.speaker) {
+        transcript.showSpeaker = true;
+        this.transcriptConvoService.updateLastSpeaker(transcript.speaker);
+      }
+      return transcript;
+    });
   }
 }
