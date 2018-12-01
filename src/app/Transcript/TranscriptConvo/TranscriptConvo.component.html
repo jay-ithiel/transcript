@@ -1,6 +1,7 @@
 <div class="transcript-snippets-container">
   <ul class="transcript-snippets-wrapper">
     <li *ngFor="let transcriptData of transcriptsData">
+      <app-transcript-speaker *ngIf="transcriptData.showSpeaker" [transcript]="transcriptData"></app-transcript-speaker>
       <app-transcript-snippet [transcript]="transcriptData"></app-transcript-snippet>
     </li>
   </ul>
