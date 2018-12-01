@@ -1,3 +1,7 @@
 <div class="transcript-snippets-container">
-  transcript stnippets
+  <ul class="transcript-snippets-wrapper">
+    <li *ngFor="let transcriptData of transcriptsData">
+      <app-transcript-snippet [transcript]="transcriptData"></app-transcript-snippet>
+    </li>
+  </ul>
 </div>
