@@ -3,15 +3,17 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TranscriptConvoComponent } from './TranscriptConvo.component';
+import { TranscriptSpeakerComponent } from './TranscriptSpeaker/TranscriptSpeaker.component';
 import { TranscriptSnippetComponent } from './TranscriptSnippet/TranscriptSnippet.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [
     TranscriptConvoComponent,
+    TranscriptSpeakerComponent,
     TranscriptSnippetComponent,
   ],
   exports: [TranscriptConvoComponent],
