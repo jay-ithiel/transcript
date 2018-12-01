@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { TranscriptSnippetsComponent } from './TranscriptSnippets.component';
+import { TranscriptConvoComponent } from './TranscriptConvo.component';
 import { TranscriptSnippetComponent } from './TranscriptSnippet/TranscriptSnippet.component';
 
 @NgModule({
@@ -11,9 +11,9 @@ import { TranscriptSnippetComponent } from './TranscriptSnippet/TranscriptSnippe
     HttpClientModule
   ],
   declarations: [
-    TranscriptSnippetsComponent,
+    TranscriptConvoComponent,
     TranscriptSnippetComponent,
   ],
-  exports: [TranscriptSnippetsComponent],
+  exports: [TranscriptConvoComponent],
 })
-export class TranscriptSnippetsModule { }
+export class TranscriptConvoModule { }

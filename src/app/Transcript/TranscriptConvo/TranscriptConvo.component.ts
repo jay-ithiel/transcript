@@ -1,26 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { TranscriptSnippetsService } from './TranscriptSnippets.service';
+import { TranscriptConvoService } from './TranscriptConvo.service';
 
 @Component({
   selector: 'app-transcript-snippets',
-  templateUrl: './TranscriptSnippets.component.html',
-  styleUrls: ['./TranscriptSnippets.component.scss'],
-  providers: [TranscriptSnippetsService],
+  templateUrl: './TranscriptConvo.component.html',
+  styleUrls: ['./TranscriptConvo.component.scss'],
+  providers: [TranscriptConvoService],
 })
-export class TranscriptSnippetsComponent implements OnInit {
+export class TranscriptConvoComponent implements OnInit {
   @Input() transcriptId: string;
 
   public transcriptsData: string[];
 
-  constructor(private transcriptSnippetsService: TranscriptSnippetsService) { }
+  constructor(private TranscriptConvoService: TranscriptConvoService) { }
 
   ngOnInit() {
     this.fetchTranscriptsData();
   }
 
   fetchTranscriptsData() {
-    this.transcriptSnippetsService.getTranscriptData(this.transcriptId)
+    this.TranscriptConvoService.getTranscriptData(this.transcriptId)
       .subscribe((transcripts: any) => {
         this.transcriptsData = transcripts.sort(
           (a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0)

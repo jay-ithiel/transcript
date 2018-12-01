@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { TranscriptComponent } from './Transcript.component';
 import { TranscriptHeaderComponent } from './TranscriptHeader/TranscriptHeader.component';
 import { TranscriptVideoComponent } from './TranscriptVideo/TranscriptVideo.component';
-import { TranscriptSnippetsModule } from './TranscriptSnippets/TranscriptSnippets.module';
+import { TranscriptConvoModule } from './TranscriptConvo/TranscriptConvo.module';
 
 @NgModule({
-  imports: [TranscriptSnippetsModule],
+  imports: [TranscriptConvoModule],
   declarations: [
     TranscriptComponent,
     TranscriptHeaderComponent,

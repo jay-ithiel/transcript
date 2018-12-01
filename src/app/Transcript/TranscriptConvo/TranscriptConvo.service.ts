@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class TranscriptSnippetsService {
+export class TranscriptConvoService {
   public transcriptsDataUrl: string;
 
   constructor(
