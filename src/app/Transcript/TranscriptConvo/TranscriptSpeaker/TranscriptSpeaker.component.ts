@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./TranscriptSpeaker.component.scss'],
 })
 export class TranscriptSpeakerComponent {
-  @Input() transcript: any;
+  @Input() speaker: string;
 }
