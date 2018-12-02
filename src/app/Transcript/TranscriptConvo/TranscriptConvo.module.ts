@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TranscriptConvoComponent } from './TranscriptConvo.component';
 import { TranscriptSpeakerComponent } from './TranscriptSpeaker/TranscriptSpeaker.component';
-import { TranscriptSpeakerBubble } from './TranscriptSpeakerBubble/TranscriptSpeakerBubble.component';
+import { TranscriptSpeakerBubbleComponent } from './TranscriptSpeakerBubble/TranscriptSpeakerBubble.component';
 import { TranscriptSnippetComponent } from './TranscriptSnippet/TranscriptSnippet.component';
 
 @NgModule({
