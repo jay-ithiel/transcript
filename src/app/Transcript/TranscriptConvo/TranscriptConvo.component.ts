@@ -27,11 +27,14 @@ export class TranscriptConvoComponent implements OnInit {
   }
 
   fetchTranscriptsData() {
-    const sortedTranscripts = data.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
-    this.transcriptsData = this.organizeBySpeaker(sortedTranscripts);
+    this.transcriptConvoService.getTranscriptData(this.transcriptId)
+      .subscribe((transcripts: any) => {
+        const sortedTranscripts = transcripts.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
+        this.transcriptsData = this.organizeSpeakers(sortedTranscripts);
+      });
   }
 
-  organizeBySpeaker(transcripts) {
+  organizeSpeakers(transcripts) {
     const organizedTranscripts = [];
     let transcriptBlock = [];
     transcripts.forEach((transcript, i) => {
@@ -44,4 +47,5 @@ export class TranscriptConvoComponent implements OnInit {
     });
     return organizedTranscripts;
   }
+
 }
