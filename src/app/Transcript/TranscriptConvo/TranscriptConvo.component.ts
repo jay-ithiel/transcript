@@ -1,6 +1,17 @@
+/**
+ * Started running into CORS errors when trying to fetch the data from
+ * the api on Sunday afternoon, so copied the json into the 'data' dir
+ *
+ * To get the data directly from the api:
+ * - comment/remove `this.fetchTranscriptsData();`
+ * - uncomment/add `this.fetchTranscriptsDataFromApi();`
+ */
+
 import { Component, Input, OnInit } from '@angular/core';
 
 import { TranscriptConvoService } from './TranscriptConvo.service';
+
+import { TRANSCRIPTS } from '../../../data';
 
 @Component({
   selector: 'app-transcript-convo',
@@ -24,9 +35,15 @@ export class TranscriptConvoComponent implements OnInit {
 
   ngOnInit() {
     this.fetchTranscriptsData();
+    // this.fetchTranscriptsDataFromApi();
   }
 
   fetchTranscriptsData() {
+    const sortedTranscripts = TRANSCRIPTS.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
+    this.transcriptsData = this.organizeSpeakers(sortedTranscripts);
+  }
+
+  fetchTranscriptsDataFromApi() {
     this.transcriptConvoService.getTranscriptData(this.transcriptId)
       .subscribe((transcripts: any) => {
         const sortedTranscripts = transcripts.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
@@ -47,5 +64,4 @@ export class TranscriptConvoComponent implements OnInit {
     });
     return organizedTranscripts;
   }
-
 }
