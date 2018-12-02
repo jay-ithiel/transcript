@@ -3,21 +3,15 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { TranscriptConvoComponent } from './TranscriptConvo.component';
-import { TranscriptSpeakerComponent } from './TranscriptSpeaker/TranscriptSpeaker.component';
-import { TranscriptSpeakerBubbleComponent } from './TranscriptSpeakerBubble/TranscriptSpeakerBubble.component';
-import { TranscriptSnippetComponent } from './TranscriptSnippet/TranscriptSnippet.component';
+import { TranscriptBlockModule } from './TranscriptBlock/TranscriptBlock.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    TranscriptBlockModule,
   ],
-  declarations: [
-    TranscriptConvoComponent,
-    TranscriptSpeakerComponent,
-    TranscriptSpeakerBubbleComponent,
-    TranscriptSnippetComponent,
-  ],
+  declarations: [TranscriptConvoComponent],
   exports: [TranscriptConvoComponent],
 })
 export class TranscriptConvoModule { }
