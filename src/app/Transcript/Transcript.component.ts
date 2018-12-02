@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./Transcript.component.scss'],
 })
 export class TranscriptComponent {
-  transcriptId = '4d79041e-f25f-421d-9e5f-3462459b9934';
+  public transcriptId: string;
 
   constructor(private router: Router) {
     const transcriptId = extractQueryParams('id');
