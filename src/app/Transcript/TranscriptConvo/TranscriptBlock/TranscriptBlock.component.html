@@ -1,7 +1,9 @@
-<div>
+<div class="transcript-block-wrapper">
   <app-transcript-speaker-bubble [speaker]="speaker"></app-transcript-speaker-bubble>
-  <app-transcript-speaker [speaker]="speaker"></app-transcript-speaker>
-  <div *ngFor="let transcript of transcriptBlock">
-    <app-transcript-snippet [transcript]="transcript"></app-transcript-snippet>
+  <div>
+    <app-transcript-speaker [speaker]="speaker"></app-transcript-speaker>
+    <div *ngFor="let transcript of transcriptBlock">
+      <app-transcript-snippet [transcript]="transcript"></app-transcript-snippet>
+    </div>
   </div>
 </div>
