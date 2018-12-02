@@ -1,11 +1,7 @@
 <div class="transcript-snippets-container">
   <ul class="transcript-snippets-wrapper">
     <li *ngFor="let transcriptData of transcriptsData">
-      <app-transcript-speaker-bubble *ngIf="transcriptData.showSpeaker"></app-transcript-speaker-bubble>
-      <div>
-        <app-transcript-speaker *ngIf="transcriptData.showSpeaker" [transcript]="transcriptData"></app-transcript-speaker>
-        <app-transcript-snippet [transcript]="transcriptData"></app-transcript-snippet>
-      </div>
+      <app-transcript-block [transcriptBlock]="transcriptData"></app-transcript-block>
     </li>
   </ul>
 </div>
