@@ -9,11 +9,13 @@ import { TranscriptModule } from './Transcript/Transcript.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './Search/Search.component';
 import { TranscriptComponent } from './Transcript/Transcript.component';
+import { NotFoundComponent } from './NotFound/NotFound.component';
 
 
 const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: '', component: TranscriptComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
@@ -24,7 +26,10 @@ const appRoutes: Routes = [
     SearchModule,
     TranscriptModule,
   ],
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    NotFoundComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
