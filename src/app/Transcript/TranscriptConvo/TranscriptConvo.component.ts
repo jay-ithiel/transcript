@@ -27,20 +27,21 @@ export class TranscriptConvoComponent implements OnInit {
   }
 
   fetchTranscriptsData() {
-    this.transcriptConvoService.getTranscriptData(this.transcriptId)
-      .subscribe((transcripts: any) => {
-        const sortedTranscripts = transcripts.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
-        this.transcriptsData = this.organizeSpeakers(sortedTranscripts);
-      });
+    const sortedTranscripts = data.sort((a, b) => (a.time > b.time) ? 1 : ((b.time > a.time) ? -1 : 0));
+    this.transcriptsData = this.organizeBySpeaker(sortedTranscripts);
   }
 
-  organizeSpeakers(transcripts) {
-    return transcripts.map((transcript, i) => {
-      if (i === 0 || this.lastSpeaker !== transcript.speaker) {
-        transcript.showSpeaker = true;
+  organizeBySpeaker(transcripts) {
+    const organizedTranscripts = [];
+    let transcriptBlock = [];
+    transcripts.forEach((transcript, i) => {
+      if (i > 0 && this.lastSpeaker !== transcript.speaker) {
+        organizedTranscripts.push(transcriptBlock);
+        transcriptBlock = [];
         this.transcriptConvoService.updateLastSpeaker(transcript.speaker);
       }
-      return transcript;
+      transcriptBlock.push(transcript);
     });
+    return organizedTranscripts;
   }
 }
