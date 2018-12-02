@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TranscriptConvoService } from './TranscriptConvo.service';
 
 @Component({
-  selector: 'app-transcript-snippets',
+  selector: 'app-transcript-convo',
   templateUrl: './TranscriptConvo.component.html',
   styleUrls: ['./TranscriptConvo.component.scss'],
   providers: [TranscriptConvoService],
